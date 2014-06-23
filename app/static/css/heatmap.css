@@ -1,7 +1,7 @@
 .map {
     height: 494px;
     width: 715px;
-    background-image: url('usa.jpg');
+    background-image: url('../img/usa.jpg');
     display: block;
     content: "";
     position: relative;
