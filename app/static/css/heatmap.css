@@ -1,0 +1,19 @@
+.map {
+    height: 494px;
+    width: 715px;
+    background-image: url('usa.jpg');
+    display: block;
+    content: "";
+    position: relative;
+}
+
+.map img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.active {
+    display: block !important;
+}
