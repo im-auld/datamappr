@@ -3,12 +3,10 @@ Flask-SQLAlchemy==1.0
 Flask-WTF==0.9.5
 Jinja2==2.7.3
 MarkupSafe==0.23
-Pillow==2.4.0
-SQLAlchemy==0.9.5
+SQLAlchemy==0.9.6
 WTForms==1.0.5
 Werkzeug==0.9.6
 argparse==1.2.1
-heatmap==2.2.1
 itsdangerous==0.24
 py==1.4.20
 pytest==2.5.2
