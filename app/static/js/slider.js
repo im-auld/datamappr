@@ -6,11 +6,13 @@ $(function() {
         max: 12,
         step : 1,
         slide: function(event, ui) {
-            var prev = ui.value - 1;
-            var next = ui.value +1;
-            $("#" + prev).css("opacity", 0).fadeOut("slow");
-            $("#" + ui.value).css("opacity", 1).fadeIn();
-            $("#" + next).css("opacity", 0).fadeOut("slow"); 
+            $.ajax("/mock-ajax", {
+                type : 'GET',
+                success : function(response){
+                    var newData = {max : 46, data : response.data};
+                    heatmap.setDataSet(newData);
+                }
+            });
         }
     });
 });
