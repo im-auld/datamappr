@@ -9,6 +9,13 @@ class State(db.Model):
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
 
+    def __init__(self, name, short_name, latitude, longitude):
+        self.name = name.title()
+        self.short_name = short_name.upper()
+        self.latitude = latitude
+        self.longitude = longitude
+
+
 class Data(db.Model):
     __tablename__ = 'Data'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -16,3 +23,10 @@ class Data(db.Model):
     raw_data = db.Column(db.Float, nullable=False)
     normalized_data = db.Column(db.Float)
     date = db.Column(db.Date, nullable=False)
+
+    def __init__(self, state, raw_data, date,normalized_data = None):
+        state = State.query.filter(State.short_name == state).first()
+        self.state = state.id
+        self.raw_data = raw_data
+        self.date = date
+        self.normalized_data = normalized_data
