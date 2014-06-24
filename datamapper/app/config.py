@@ -1,5 +1,5 @@
 from os import environ
 
-DATABASE = environ.get(
-    'DATABASE_URL', 'dbname=heatmapper'
+SQLALCHEMY_DATABASE_URI = environ.get(
+    'DATABASE_URL', 'postgresql://ian:heatmapper@localhost/heatmapper'
 )
