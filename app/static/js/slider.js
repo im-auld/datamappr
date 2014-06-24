@@ -1,5 +1,4 @@
 //TODO: Fix first line when id's change
-$("#1").css("opacity", 1);
 $(function() {
     $("#slider").slider({
         min: 1,
