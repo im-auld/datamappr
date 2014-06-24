@@ -10,5 +10,5 @@ def index():
 
 @app.route('/mock-ajax')
 def mock_ajax():
-    mock = [{'lat' : random() * 180,'lng' : random() * 180 ,'count' : randint(25000, 45000)} for _ in range(50)]
+    mock = [{'lat' : random() * 60,'lng' : random() * -180,'count' : randint(25000, 45000)} for _ in range(50)]
     return jsonify(data=mock)
