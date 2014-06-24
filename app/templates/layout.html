@@ -5,10 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> sentiment </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/heatmap.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/heatmap.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/heatmap-gmaps.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/heatmap-config.js') }}"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,10 +28,6 @@
   <body>
     {% block content %}
     {% endblock %}
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script src="{{ url_for('static', filename='js/heatmap.js') }}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   </body>

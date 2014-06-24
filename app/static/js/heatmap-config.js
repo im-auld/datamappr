@@ -13,7 +13,7 @@
           center: myLatlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           disableDefaultUI: false,
-          scrollwheel: true,
+          scrollwheel: false,
           draggable: true,
           navigationControl: true,
           mapTypeControl: false,
