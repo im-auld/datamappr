@@ -20,7 +20,7 @@ class Data(db.Model):
     __tablename__ = 'Data'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     state_id = db.Column(db.Integer, db.ForeignKey('State.id'))
-    data_set = db.Column(db.Integer, db.ForeignKey())
+    data_set = db.Column(db.Integer, db.ForeignKey('DataSet.id'))
     raw_data = db.Column(db.Float, nullable=False)
     normalized_data = db.Column(db.Float)
     date = db.Column(db.Date, nullable=False)

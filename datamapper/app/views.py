@@ -36,13 +36,13 @@ def get_data_set():
     date_end = request.args.get('date_end', False)
     if date_end:
         result = Data.query\
-            .filter(Data.type == data_set)\
-            .filter(Data.date_gathered.between(date_start, date_end))\
+            .filter(Data.data_set == data_set)\
+            .filter(Data.date.between(date_start, date_end))\
             .all()
     else:
         result = Data.query\
-            .filter(Data.type == data_set)\
-            .filter(Data.date_gathered >= date_start)\
+            .filter(Data.data_set == data_set)\
+            .filter(Data.date >= date_start)\
             .all()
     return jsonify(
         data_set=data_set,
