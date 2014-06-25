@@ -78,3 +78,8 @@ def test_db(session):
     _db.session.add(ny)
     _db.session.commit()
     assert ny.id > 0
+
+def test_data_model(session):
+    data = Data('NY', .12, '6/22/14')
+    print(State.query.filter(State.short_name == 'NY').first().id)
+    assert data.state_id == 1

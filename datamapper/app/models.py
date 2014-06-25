@@ -25,8 +25,8 @@ class Data(db.Model):
     date = db.Column(db.Date, nullable=False)
 
     def __init__(self, state, raw_data, date,normalized_data = None):
-        state = State.query.filter(State.short_name == state).first()
-        self.state = state.id
+        db_state = State.query.filter(State.short_name == state).first()
+        self.state_id = db_state.id
         self.raw_data = raw_data
         self.date = date
         self.normalized_data = normalized_data
