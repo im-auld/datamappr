@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <title>
+      States - FRED - St. Louis Fed
+    </title>
+        <meta name="description" content="Category: U.S. Regional Data &gt; States, 94580 economic data series, FRED: Download, graph, and track economic data.">
+            <meta name="keywords" content="Economic Data, Federal Reserve, Fed, Bank, St. Louis">
+            <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?date=20140321">
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="/css/ie.css">
+    <![endif]-->
+        <link rel="canonical" href="http://research.stlouisfed.org/fred2/categories/27281">
+    
+      </head>
+  <body>
+   <a name="top" id="top"></a>
+<!--[if lt IE 7 ]> <div id="container" class="ie6"><![endif]-->
+<!--[if IE 7 ]> <div id="container" class="ie7"><![endif]-->
+<!--[if IE 8 ]> <div id="container" class="ie8"><![endif]-->
+<!--[if IE 9 ]> <div id="container" class="ie9"><![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!--> <div id="container"><!--<![endif]-->
+
+
+
+
+
+<div id="header">
+    <a href="/"><img src="/images/masthead-2x.png" id="logo" width="450" height="100" alt="Economic Research, Federal Reserve Bank of St. Louis"></a>
+    <div id="head-right">
+        
+        <div id="signin-wrap">
+            <div id="user-nav">
+                <ul class="signedout">
+                    <li><a href="/useraccount/">My Account</a></li>
+                    <li><a href="/useraccount/register">Register</a></li>
+                    <li><a href="/useraccount/login" class="signin">Sign in</a></li>
+                </ul>
+                <ul class="signedin">
+                    <li><a href="/useraccount/">My Account</a></li>
+                    <li><a href="/useraccount/logout" class="signout">Sign out</a></li>
+                </ul>
+            </div>            
+
+                <br class="clear"><br>
+                <div id="signin_menu">
+            <form method="post" id="signin" action="https://research.stlouisfed.org/useraccount/login/secure">
+                <p><label for="user-email">Email</label><input id="user-email" name="form[email]" value="" title="email" type="text"></p>
+                <p><label for="user-password">Password</label><input id="user-password" name="form[password]" value="" title="password" type="password"></p>
+                <p class="remember"><label for="remember"><input id="remember" name="form[stay_logged_in]" value="1" type="checkbox"> Remember me</label></p>
+                <p><input id="signin_submit" value="Sign in" type="submit"></p>
+                <p class="forgot"> <a href="/useraccount/forgotpassword/step1">Forgot your password?</a></p>
+            	<p><a href="/useraccount/learnmore">Learn More</a></p>
+            </form>
+            	</div>
+        </div>
+        <br class="clear">
+        
+        <form action="/ssi/search.php" id="head-search-form">
+    	<div id="head-search-container">
+    	    <input type="text" id="head-search" name="q" class="js-placeholder" title="Search "><button type='submit' id="head-search-button">&nbsp;</button>
+            
+        </div>
+        </form>
+    </div>
+</div>
+
+<div id="research-nav">
+    <ul id="main-nav">
+        <li>
+            <a href="/fred2/" id="fred-link">FRED<span class="trademark" style="color:#FFF">&reg;</span> Economic Data</a>
+            <div id="mega-fred" class="mega-submenu">
+                <div id="fred-nav" class="mega-snapshot">
+
+                    <h3>FRED</h3>
+                    <ul class="mega-2col"> 
+                <li><a href="/fred2/tags/series">All Series</a></li>                       
+                <li><a href="/fred2/tags">Tags</a></li>
+		        <li><a href="/fred2/categories">Categories</a></li>
+		        <li><a href="/fred2/releases">Releases</a></li>
+                <li><a href="/fred2/sources">Sources</a></li>
+                <li><a href="/fred2/tags/series?ob=lu">Updates</a></li>
+                <li><a href="/fred2/releases/calendar">Release Calendar</a></li>
+                <li><a href="http://fredblog.stlouisfed.org">FRED Blog <span class="badge">NEW</span></a></li>
+                    </ul>
+                                    </div>
+
+                <div id="fred-popular" class="mega-content">
+
+                    <h3>Popular Series</h3>
+		    <img src="/images/fred-logo-2x.png" width="200" height="64" alt="FRED Logo" style="float:right;margin:1em">
+		    <ul>
+                                                <li><a href="/fred2/series/CPIAUCSL">Consumer Price Index for All Urban Consumers: All Items</a></li>
+                                                <li><a href="/fred2/series/GDPC1">Real Gross Domestic Product</a></li>
+                                                <li><a href="/fred2/series/DGS10">10-Year Treasury Constant Maturity Rate</a></li>
+                                                <li><a href="/fred2/series/M2V">Velocity of M2 Money Stock</a></li>
+                                                <li><a href="/fred2/series/UNRATE">Civilian Unemployment Rate</a></li>
+                                                <li><a href="/fred2/series/GDP">Gross Domestic Product</a></li>
+                                                <li><a href="/fred2/tags/series?ob=pv">Top 50 Popular Series</a></li>
+                    </ul>
+
+                    <br class="clear">
+                </div>
+            </div>
+        </li>
+        <li><a href="/datatools.html">Data Tools</a>
+            <div class="mega-submenu">
+            <div id="data-tools" class="mega-content">
+		<h3>Data Tools</h3>
+
+                <p><img src="/images/data-tools-fred.png" width="35" height="35" alt="FRED logo"><span><strong><a href="/fred2/graph/?utm_source=research&utm_medium=website&utm_campaign=data-tools">Create Your Own Graphs</a></strong>
+                <br>FRED Graph - Create graphs using FRED data.</span>
+                </p>
+
+                <p><img src="/images/data-tools-iphone.png" width="35" height="35" alt="iPhone logo"><span><strong><a href="/fred-mobile/?utm_source=research&utm_medium=website&utm_campaign=data-tools">Access Data on the Go</a></strong>
+                <br>FRED Mobile Apps</span>
+                </p>
+
+                <p><img src="/images/data-tools-excel.png" width="35" height="35" alt="Excel logo"><span><strong><a href="/fred-addin/?utm_source=research&utm_medium=website&utm_campaign=data-tools">Load Data from Excel</a></strong>
+                <br>FRED Add-in - Load FRED data directly into Microsoft&reg; Excel&reg;.</span>
+                </p>
+
+                <p><img src="/images/data-tools-geofred.png" width="35" height="35" alt="GeoFRED logo"><span><strong><a href="http://geofred.stlouisfed.org/?utm_source=research&utm_medium=website&utm_campaign=data-tools">Create Your Own Maps</a></strong>
+                <br>GeoFRED - Map data at state, MSA &amp; county levels.</span>
+                </p>
+
+                <p><img src="/images/data-tools-alfred.png" width="35" height="35" alt="ALFRED logo"><span><strong><a href="http://alfred.stlouisfed.org/?utm_source=research&utm_medium=website&utm_campaign=data-tools">View Archival Economic Data</a></strong>
+                <br>ALFRED - View and chart vintage FRED data.</span>
+                </p>
+
+                <p><img src="/images/data-tools-fred.png" width="35" height="35" alt="FRED logo"><span><strong><a href="http://api.stlouisfed.org/docs/fred/?utm_source=research&utm_medium=website&utm_campaign=data-tools">Developer Access to FRED</a></strong>
+                <br>API - Access FRED data in your own applications.</span>
+                </p>
+
+                <p><img src="/images/data-tools-fred.png" width="35" height="35" alt="FRED logo"><span><strong><a href="http://fredqa.stlouisfed.org/2012/12/20/embedded-fred-a-widget-just-for-you/">Embedded FRED Data</a></strong>
+                <br>Show 6 of our most popular data series on your website or blog. <a href="http://research.stlouisfed.org/fred-glance-widget/configure.html">Now you can customize your widget!</a></span>
+                </p>
+
+            </div>
+            </div>
+        </li>
+        <li>
+            <a href="/publications/" id="publications-link">Publications</a>
+
+            <div id="mega-publications" class="mega-submenu">
+                <div id="pub-listing" class="mega-snapshot">
+                    <h3>Publications</h3>
+                    <ul>
+                        <li><a href="/publications/usfd/">US Financial Data</a></li>
+                        <li><a href="/publications/review/">Review</a></li>
+                        <li><a href="/publications/es/">Economic Synopses</a></li>
+                        <li><a href="/pageone-economics/pages/newsletter_summary.php">Page One Economics Newsletter</a></li>
+                        <li><a href="/regecon/district.html">Burgundy Books</a></li>
+                        <li><a href="http://stlouisfed.org/publications/re/">The Regional Economist</a></li>
+                        <li><a href="/publications/">All Publications</a></li>
+                    </ul>
+                </div>
+
+                <div id="pub-recent" class="mega-content">
+
+                    <h3>Featured Publication</h3>
+
+                    <div>
+                    <h4><a href="/publications/review/">The Federal Reserve Bank of St. Louis Review</a></h4>
+                    <p>A quarterly research journal intended for an economically informed but broad readership—from the undergraduate student to the PhD.</p>
+
+                    <p class="notice"><a href="/publications/review/">Current Issue</a> | <a href="/publications/review/past/">Previous Issues</a></p>
+
+                    <p><strong>In this Issue:</strong></p>
+                    <ul id="in-this-issue">
+                                                   <li><a href="/publications/review/article/10139">Monetary Policy in the United States: A Brave New World?</a></li>
+                                                   <li><a href="/publications/review/article/10140">The 2009 Recovery Act: Directly Created and Saved Jobs Were Primarily in Government</a></li>
+                                                   <li><a href="/publications/review/article/10141">Representative Neighborhoods of the United States</a></li>
+                                                   <li><a href="/publications/review/article/10142">Factor-Based Prediction of Industry-Wide Bank Stress</a></li>
+                               
+                            <li><a href="/publications/review/">more</a></li>
+                    </ul>
+
+                    </div>
+                    <a href="/publications/review/"><img src="/images/2014ReviewCover.jpg" alt="Review"></a>
+
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="/wp/" id="workingpapers-link">Working Papers</a>
+            <div id="mega-workingpapers" class="mega-submenu">
+                <div id="wp-categories" class="mega-snapshot">
+
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="/wp/archives/?category_id=32">Applied Econometrics</a></li>
+                        <li><a href="/wp/archives/?category_id=33">Applied Microeconomics</a></li>
+                        <li><a href="/wp/archives/?category_id=11">Banking</a></li>
+                        <li><a href="/wp/archives/?category_id=2">Finance</a></li>
+                        <li><a href="/wp/archives/?category_id=4">International</a></li>
+                        <li><a href="/wp/archives/?category_id=50">Mathematical and Quantitative Methods</a></li>
+                        <li><a href="/wp/archives/?category_id=40">Monetary Policy</a></li>
+                        <li><a href="/wp/archives/?category_id=48">Regional Economics</a></li>
+                    </ul>
+                    <br class="clear">
+                </div>
+
+                <div id="wp-recent" class="mega-content">
+
+                    <h3>Recent Working Papers</h3>
+                    <dl id="wp-listing">
+                                                
+                        <dt>
+			    <span class="wp-published-date">Jun 10</span>
+                            <a href="/wp/more/2014-013/">Navigating Constraints: The Evolution of Federal Reserve Monetary Policy, 1935-59</a>
+                        </dt>
+                        <dd>
+                            <span class="byline">Mark A. Carlson and David C. Wheelock</span>
+                        </dd>
+                                                
+                        <dt>
+			    <span class="wp-published-date">May 16</span>
+                            <a href="/wp/more/2014-012/">Capital Goods Trade and Economic Development</a>
+                        </dt>
+                        <dd>
+                            <span class="byline">Piyusha Mutreja, B. Ravikumar, and Michael J. Sposi</span>
+                        </dd>
+                                                
+                        <dt>
+			    <span class="wp-published-date">Apr 21</span>
+                            <a href="/wp/more/2014-011/">Reversal of Gender Gaps in Child Development: Evidence from Young Children in India</a>
+                        </dt>
+                        <dd>
+                            <span class="byline">Florencia Lopez Boo and Maria E. Canon</span>
+                        </dd>
+                                                
+                        <dt>
+			    <span class="wp-published-date">Mar 27</span>
+                            <a href="/wp/more/2014-010/">Credit Markets, Limited Commitment, and Government Debt</a>
+                        </dt>
+                        <dd>
+                            <span class="byline">Francesca Carapella and Stephen Williamson</span>
+                        </dd>
+                                                
+                        <dt>
+			    <span class="wp-published-date">Mar 27</span>
+                            <a href="/wp/more/2014-009/">Keynesian Inefficiency and Optimal Policy: A New Monetarist Approach</a>
+                        </dt>
+                        <dd>
+                            <span class="byline">Stephen Williamson</span>
+                        </dd>
+                                                
+                    </dl>
+                    <br class="clear">
+                </div>
+            </div>
+
+        </li>
+        <li>
+            <a href="/econ/" id="economist-link">Economists</a>
+            <div id="mega-economists" class="mega-submenu">
+                <div id="exec-economists" class="mega-snapshot">
+
+                    <h3>Leadership</h3>
+                    <dl>
+                        <dt><a href="/econ/bullard/">James Bullard</a></dt>
+                        <dd>President &amp; Chief Executive Officer</dd>
+
+                        <dt><a href="/econ/waller/">Christopher J. Waller</a></dt>
+                        <dd>Director of Research</dd>
+
+                        <dt><a href="/econ/coughlin/">Cletus C. Coughlin</a></dt>
+                        <dd>Policy Adviser</dd>
+
+                        <dt><a href="/econ/wheelock/">David C. Wheelock</a></dt>
+                        <dd>Deputy Director of Research</dd>
+                    </dl>
+                </div>
+
+                <div id="staff-economists" class="mega-content">
+                    <h3>Economists</h3>
+                    <ul class="mega-4col">
+                        <li><a href="/econ/andolfatto/">David Andolfatto</a></li>
+                        <li><a href="/econ/azariadis/">Costas Azariadis</a></li>
+                        <li><a href="/econ/badel/">Alejandro Badel</a></li>
+                        <li><a href="/econ/bandyopadhyay/">Subhayu Bandyopadhyay</a></li>
+                        <li><a href="/econ/berentsen/">Aleksander Berentsen</a></li>
+                        <li><a href="/econ/boldrin/">Michele Boldrin</a></li>
+                        <li><a href="/econ/canon/">Maria E. Canon</a></li>
+                        <li><a href="/econ/chien/">YiLi Chien</a></li>
+                        <li><a href="/econ/contessi/">Silvio Contessi</a></li>
+                    </ul>
+                    <ul class="mega-4col">
+                        <li><a href="/econ/dicecio/">Riccardo DiCecio</a></li>
+                        <li><a href="/econ/dupor/">William Dupor</a></li>
+                        <li><a href="/econ/garriga/">Carlos Garriga</a></li>
+                        <li><a href="/econ/gavin/">William T. Gavin</a></li>
+                        <li><a href="/econ/hernandez/">Rub&eacute;n Hern&aacute;ndez-Murillo</a></li>
+                        <li><a href="/econ/kliesen/">Kevin L. Kliesen</a></li>
+                        <li><a href="/econ/levine/">David Levine</a></li>
+                        <li><a href="/econ/manuelli/">Rodolfo Manuelli</a></li>
+                        <li><a href="/econ/martin/">Fernando M. Martin</a></li>
+                    </ul>
+                    <ul class="mega-4col">
+                        <li><a href="/econ/mccracken/">Michael W. McCracken</a></li>
+                        <li><a href="/econ/monge-naranjo/">Alexander Monge-Naranjo</a></li>
+                        <li><a href="/econ/cneely/">Christopher J. Neely</a></li>
+                        <li><a href="/econ/otrok/">Christopher Otrok</a></li>
+                        <li><a href="/econ/owyang/">Michael T. Owyang</a></li>
+                        <li><a href="/econ/ravikumar/">B. Ravikumar</a></li>
+                        <li><a href="/econ/restrepo-echavarria/">Paulina Restrepo-Echavarria</a></li>
+                        <li><a href="/econ/sanchez/">Juan M. S&aacute;nchez</a></li>
+                    </ul>
+                    <ul class="mega-4col">
+                        <li><a href="/econ/santaeulalia-llopis/">Raul Santaeulalia-Llopis</a></li>
+                        <li><a href="/econ/shin/">Yongseok Shin</a></li>
+                        <li><a href="/econ/thornton/">Daniel L. Thornton</a></li>
+                        <li><a href="/econ/wen/">Yi Wen</a></li>
+                        <li><a href="/econ/wiczer">David Wiczer</a></li>
+                        <li><a href="/econ/williamson/">Stephen Williamson</a></li>
+                        <li><a href="/econ/zimmermann/">Christian Zimmermann</a></li>
+                    </ul>
+
+                    <br class="clear">
+
+                </div>
+            </div>
+        </li>
+        
+        <li><a href="/resources.html">More</a>
+        <div class="mega-submenu">
+            <div class="mega-snapshot">
+                <h3>Tools</h3>
+                <ul>
+                    <li><a href="/fred2/"><strong>FRED&reg;</strong></a></li>
+                    <li><a href="http://alfred.stlouisfed.org"><strong>ALFRED&reg;</strong></a></li>
+                    <li><a href="http://geofred.stlouisfed.org"><strong>GeoFRED&reg;</strong></a></li>
+                    <li><a href="http://ideas.repec.org"><strong>IDEAS</strong></a></li>
+                    <li><a href="http://cassidi.stlouisfed.org"><strong>CASSIDI&reg;</strong></a></li>
+                    <li><a href="http://fraser.stlouisfed.org"><strong>FRASER&reg;</strong></a></li>                    
+                    <li><a href="http://api.stlouisfed.org"><strong>Developers / API</strong></a></li>
+                </ul>
+                <br class="clear">
+            </div>
+            <div id="more-research" class="mega-content">
+		<h3>More Services</h3>
+                
+		<p><a href="/conferences"><strong>Events</strong></a>
+		<br>Information on conferences, seminars, and workshops sponsored by the Research Division.
+		</p>
+
+        <p><a href="/regecon/"><strong>8th District Economy</strong></a>
+        <br>Find economic data and reports on economic conditions in the Federal Reserve's Eighth District.
+        </p>
+
+		<p><a href="/jobopps/"><strong>Careers</strong></a>
+		<br>Job opportunities offered by the Research Division
+		</p>
+
+		<p><a href="/pageone-economics"><strong>Page One Economics</strong></a>
+		<br>Includes a newsletter, data "starter set," and other economic resources.
+        </p>
+		
+		<p><a href="http://www.stlouisfed.org/education_resources/"><strong>Education Resources</strong></a>
+		<br>Classroom resources for elementary, middle-school, high-school, and college educators.
+		</p>
+		
+        <p><img src="/apps/econwise/EconWise_72px.png" height="50" width="50" alt="EconWise logo" style="float:right;margin-left:1em"><a href="/apps/econwise/"><strong>EconWise</strong></a>
+        <br>The excellent economic analysis you expect, now with the advantages of a free mobile app.
+        </p>
+
+		<p><a href="/aggreg/"><strong>Monetary Aggregates</strong></a>
+		<br>Data and information relating to monetary aggregates.
+		</p>
+
+		<p><a href="/downloads/Research_infographic_web.pdf"><strong>Economic Information Infographic</strong></a>
+		<br>A guide to understanding the economy using the resources of the Federal Reserve Bank of St. Louis.
+		</p>
+
+
+		<p  style="float:right" align="right"><a href="/resources.html">View All</a></p>
+                
+            </div>
+            </div>
+        </li>
+        <li style="float:right;border:0"><a href="http://stlouisfed.org" style="color:#CCC;">St. Louis Fed Home</a></li>
+
+
+    </ul>
+</div>
+
+<div id="content">
+
+<div id="content-container">
+   
+      <div id="content-2columns-left">
+        <a href="/fred2/"><img src="/images/fred-logo-2x.png" width="200" height="64" alt="FRED Economic Data | St. Louis Fed"></a><br><br>
+
+                    
+        
+
+        
+    <h2>Need Help?</h2>
+    <ul class="list-bullets">
+    <li><a href="http://fredqa.stlouisfed.org/2014/03/27/fred-graph-how-to-step-by-step-tutorials//">Tutorials</a></li>
+    <li><a href="/fred2/help-faq/">FAQs</a></li>
+    <li><a href="/contactus/email_fred.php">Email Us</a></li>
+    </ul>
+       
+</div>
+   <div id="content-2columns-main" style="background-color:#ffffff">
+            <p id="breadcrumbs">
+     <span>
+       <a href="/">Home</a> &gt; <a class="breadcrumb_link" href="/fred2/">FRED&#174 Economic Data</a> &gt; <a class="breadcrumb_link" href="/fred2/categories">Categories</a> &gt; <a class="breadcrumb_link" href="/fred2/categories/3008">U.S. Regional Data</a>     </span>
+   </p>
+         
+         
+      <h1>States</h1>
+      
+   
+
+    <h2>Categories</h2>
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr bgcolor="#ffffff">
+        <td valign="top" align="left" style="padding-right:20px">
+            <ul class="list-bullets" style="padding-bottom:0">
+                 
+            <li><a href="/fred2/categories/27282">Alabama</a>&nbsp;(1,807)</li>
+                 
+            <li><a href="/fred2/categories/27283">Alaska</a>&nbsp;(705)</li>
+                 
+            <li><a href="/fred2/categories/27284">Arizona</a>&nbsp;(1,288)</li>
+                 
+            <li><a href="/fred2/categories/149">Arkansas</a>&nbsp;(1,177)</li>
+                 
+            <li><a href="/fred2/categories/27286">California</a>&nbsp;(6,882)</li>
+                 
+            <li><a href="/fred2/categories/27287">Colorado</a>&nbsp;(1,600)</li>
+                 
+            <li><a href="/fred2/categories/27288">Connecticut</a>&nbsp;(1,526)</li>
+                 
+            <li><a href="/fred2/categories/27289">Delaware</a>&nbsp;(809)</li>
+                 
+            <li><a href="/fred2/categories/27290">District of Columbia</a>&nbsp;(705)</li>
+                 
+            <li><a href="/fred2/categories/27291">Florida</a>&nbsp;(3,411)</li>
+                 
+            <li><a href="/fred2/categories/27292">Georgia</a>&nbsp;(2,134)</li>
+                 
+            <li><a href="/fred2/categories/27293">Hawaii</a>&nbsp;(822)</li>
+                 
+            <li><a href="/fred2/categories/27294">Idaho</a>&nbsp;(1,212)</li>
+                 
+            <li><a href="/fred2/categories/150">Illinois</a>&nbsp;(2,971)</li>
+                 
+            <li><a href="/fred2/categories/151">Indiana</a>&nbsp;(2,748)</li>
+                 
+            <li><a href="/fred2/categories/27297">Iowa</a>&nbsp;(1,615)</li>
+                 
+            <li><a href="/fred2/categories/27298">Kansas</a>&nbsp;(1,337)</li>
+                 
+            <li><a href="/fred2/categories/152">Kentucky</a>&nbsp;(1,739)</li>
+                 
+            <li><a href="/fred2/categories/27300">Louisiana</a>&nbsp;(1,532)</li>
+                 
+            <li><a href="/fred2/categories/27301">Maine</a>&nbsp;(944)</li>
+                 
+            <li><a href="/fred2/categories/27302">Maryland</a>&nbsp;(1,885)</li>
+                 
+            <li><a href="/fred2/categories/27303">Massachusetts</a>&nbsp;(2,557)</li>
+                 
+            <li><a href="/fred2/categories/27304">Michigan</a>&nbsp;(3,288)</li>
+                 
+            <li><a href="/fred2/categories/27305">Minnesota</a>&nbsp;(1,910)</li>
+                 
+            <li><a href="/fred2/categories/153">Mississippi</a>&nbsp;(1,115)</li>
+                 
+            <li><a href="/fred2/categories/154">Missouri</a>&nbsp;(2,004)</li>
+                        </ul>
+        </td>
+                    <td valign="top" align="left">
+                <ul class="list-bullets" style="padding-right:20px;padding-bottom:0">
+                     
+                    <li><a href="/fred2/categories/27308">Montana</a>&nbsp;(743)</li>
+                     
+                    <li><a href="/fred2/categories/27309">Nebraska</a>&nbsp;(1,228)</li>
+                     
+                    <li><a href="/fred2/categories/27310">Nevada</a>&nbsp;(904)</li>
+                     
+                    <li><a href="/fred2/categories/27311">New Hampshire</a>&nbsp;(1,341)</li>
+                     
+                    <li><a href="/fred2/categories/27312">New Jersey</a>&nbsp;(2,647)</li>
+                     
+                    <li><a href="/fred2/categories/27313">New Mexico</a>&nbsp;(702)</li>
+                     
+                    <li><a href="/fred2/categories/27314">New York</a>&nbsp;(3,381)</li>
+                     
+                    <li><a href="/fred2/categories/27315">North Carolina</a>&nbsp;(2,327)</li>
+                     
+                    <li><a href="/fred2/categories/27316">North Dakota</a>&nbsp;(890)</li>
+                     
+                    <li><a href="/fred2/categories/27317">Ohio</a>&nbsp;(2,766)</li>
+                     
+                    <li><a href="/fred2/categories/27318">Oklahoma</a>&nbsp;(1,220)</li>
+                     
+                    <li><a href="/fred2/categories/27320">Pennsylvania</a>&nbsp;(3,242)</li>
+                     
+                    <li><a href="/fred2/categories/27319">Oregon</a>&nbsp;(1,610)</li>
+                     
+                    <li><a href="/fred2/categories/27322">Rhode Island</a>&nbsp;(724)</li>
+                     
+                    <li><a href="/fred2/categories/27323">South Carolina</a>&nbsp;(1,411)</li>
+                     
+                    <li><a href="/fred2/categories/27324">South Dakota</a>&nbsp;(719)</li>
+                     
+                    <li><a href="/fred2/categories/193">Tennessee</a>&nbsp;(1,662)</li>
+                     
+                    <li><a href="/fred2/categories/27326">Texas</a>&nbsp;(6,415)</li>
+                     
+                    <li><a href="/fred2/categories/27328">Utah</a>&nbsp;(1,215)</li>
+                     
+                    <li><a href="/fred2/categories/27329">Vermont</a>&nbsp;(604)</li>
+                     
+                    <li><a href="/fred2/categories/27330">Virginia</a>&nbsp;(1,986)</li>
+                     
+                    <li><a href="/fred2/categories/27331">Washington</a>&nbsp;(2,319)</li>
+                     
+                    <li><a href="/fred2/categories/27333">Wisconsin</a>&nbsp;(2,595)</li>
+                     
+                    <li><a href="/fred2/categories/27332">West Virginia</a>&nbsp;(1,535)</li>
+                     
+                    <li><a href="/fred2/categories/27334">Wyoming</a>&nbsp;(671)</li>
+                 
+                </ul>
+            </td>
+         
+                       
+        </tr>  
+    </table>
+
+
+
+
+   </div>
+
+   
+      
+<br class="clear">
+</div>
+</div>
+    <div id="footer">
+
+        <div>
+            <strong class="footer-section-header">MY ACCOUNT:</strong>
+            <ul>                
+                <li><a href="/useraccount/login/">Sign In</a></li>
+                <li class="last-item"><a href="/useraccount/register/">Register</a></li>
+            </ul>
+            <br class="clear">
+        </div>
+        
+        
+        <div>
+            <strong class="footer-section-header">ABOUT:</strong>
+            <ul>
+                <li><a href="/jobopps/">Employment</a></li>
+                <li><a href="/contactus/">Contact</a></li>
+                <li><a href="/customer-comments.html">Customer Comments</a></li>
+                <li><a href="/followfed.html">Follow the Fed</a>
+                <li><a href="/rss/">RSS</a></li>
+                <li><a href="/privacy.html">Privacy</a></li>
+                <li><a href="/legal.html">Legal</a></li>
+            </ul>
+            <br class="clear">
+        </div>
+        
+        <div>
+            <strong class="footer-section-header">SERVICES:</strong>
+            <ul>
+                <li><a href="/fred2/">FRED&reg;</a></li>
+                <li><a href="http://m.research.stlouisfed.org/">Mobile FRED&reg;</a></li>
+                <li><a href="http://alfred.stlouisfed.org/">ALFRED&reg;</a></li>
+                <li><a href="http://geofred.stlouisfed.org">GeoFRED&reg;</a></li>
+                <li><a href="http://cassidi.stlouisfed.org">CASSIDI&reg;</a></li>
+                <li><a href="http://fraser.stlouisfed.org">FRASER&reg;</a></li>
+                <li><a href="http://api.stlouisfed.org">Developer/APIs</a></li>
+                <li class="last-item"><a href="http://ideas.repec.org">IDEAS</a></li>
+                
+            </ul>
+            <br class="clear">
+        </div>
+
+        
+        <div>
+            <strong class="footer-section-header">RESEARCH:</strong>
+            <ul>            
+            <li><a href="/regecon/">8th District Economy</a></li>
+            <li><a href="/pageone-economics/">Page One Economics</a></li>
+            <li><a href="/conferences/">Events</a></li>
+            <li><a href="/aggreg/">Monetary Aggregates</a></li>
+            <li><a href="/resources.html">Other Resources</a></li>           
+            <li><a href="http://stlouisfed.org/education_resources/">Education Resources</a></li>
+            <li><a href="http://stlouisfed.org/fomcspeak/">FOMC Speak</a></li>
+            </ul>            
+            <br class="clear">
+        </div>
+
+        <div>
+            <strong class="footer-section-header">HELP:</strong>
+            <ul>
+                <li>Data:
+                    <a href="/contactus/email_fred.php">stlsFRED@stls.frb.org</a></li>
+                <li>Questions/Comments:
+                    <a href="/contactus/email_research_webmaster.php">webmaster@research.stlouisfed.org</a></li>
+                <li><a href="/fred2/help-faq/">FRED Help</a></li>
+                <li class="last-item"><a href="/help.html">More Help</a></li>
+            </ul>
+            <br class="clear">
+        </div>
+        
+        <div>
+            <strong class="footer-section-header">TOOLS:</strong>
+            <ul>
+                <li><a href="/fred-mobile/">FRED Mobile Apps</a></li>
+                <li><a href="/fred-addin/">FRED Add-In</a> for Microsoft&reg; Excel&reg;</li>
+                <li><a href="http://fredqa.stlouisfed.org/2012/12/20/embedded-fred-a-widget-just-for-you/">Embeddable FRED Widget</a></li>
+                <li><a href="http://research.stlouisfed.org/apps/econwise/">EconWise iPad App</a></li>
+            </ul>
+            <br class="clear">
+        </div>
+        
+        <div>
+            <strong class="footer-section-header">OUR SITES:</strong>
+            <ul>
+                <li><a href="http://stlouisfed.org/">St. Louis Fed</a></li>
+                <li><a href="http://federalreserveonline.org">Federal Reserve System</a></li>
+                <li><a href="/">Economic Research</a></li>
+            </ul>
+            <br class="clear">
+        </div>
+        
+    </div>
+    <div class="footer2">   
+    <div class="footer2-left">
+        <form action="//federalreservebankofstlouis.createsend.com/t/t/s/pkiil/" method="post" style="padding:0;margin:0">
+            <strong>Subscribe to our newsletter</strong> for updates on published research, data news, and latest econ information.<br>
+            Name: <input type="text" size="15" name="cm-name">
+            &nbsp;
+            Email: <input type="text" size="15" name="cm-pkiil-pkiil">
+            &nbsp;
+            <input type="hidden" name="cm-f-ttjlj" value="Research site footer">
+            <input type="submit" name="submit" value="Subscribe" class="footer2-submit">
+        </form>
+    </div>
+    <div class="footer2-right">
+        <a href="http://bit.ly/9ngC3L"><img src="/images/twitter-logo-h100-w100.png" width="25" height="25" alt="Twitter logo"></a>
+        <a href="http://bit.ly/19UjvkQ"><img src="/images/gplus-logo-h50.png" height="25" width="25" alt="Google Plus logo"></a>
+        <a href="http://bit.ly/HeaderFB"><img src="/images/facebook-logo-h100-w100.png" width="25" height="25" alt="Facebook logo"></a>
+        <a href="http://bit.ly/aY9TVF"><img src="/images/youtube-logo-h100-w100.png" height="25" width="25" alt="YouTube logo"></a>
+        <a href="http://bit.ly/d056zL"><img src="/images/linkedin-logo-h50.png" height="25" width="30" alt="LinkedIn logo"></a>
+    </div>
+    <br class="clear">
+    </div>
+
+
+<div id="footer-bottom">
+    <div id="address">
+        Federal Reserve Bank of St. Louis, 
+        One Federal Reserve Bank Plaza, 
+        St. Louis, MO 63102
+    </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9926151-1");
+if(window.tags) {
+    pageTracker._setCustomVar(1, 'tags', tags);
+}
+pageTracker._trackPageview();
+pageTracker._trackPageLoadTime();
+} catch(err) {}</script>
+<script src="/js/gaAddons.js" type="text/javascript"></script>
+
+
+<!-- jquery include start -->
+<script src="//www.google.com/jsapi?key=ABQIAAAAPelFyeCz0PpV85SR5rWaqRRhAb2Ap3qYoysH45CbGq2mti5UQBSkEmzrEopuvbJMUl_7-XoJ24PVBg" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+   <script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+<!-- jquery include end -->
+<script src="/js/jquery/plugins/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+<script src="/js/dbeta-common.js" type="text/javascript"></script>
+
+<!--[if lt IE 7 ]>
+<script src="/js/dd_belatedpng.js" type="text/javascript"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('img, #followus a, .icon-pdf');
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+$(function(){
+$( "#head-search" ).autocomplete({
+    source: function( request, response ) {
+        $.ajax({
+            url: "/ssi/search_ga_autosuggest.php",
+            dataType: "json",
+            data: {
+                q:request.term,
+                search_type:$('#search_type').val()
+            },
+            success: function( data ) {
+                response( $.map( data.results, function( item ) {
+                    return {
+                        label: item.name,
+                        value: item.name
+                    }
+                }));
+            }
+
+        });
+    },
+    minLength: 1,
+    select: function(event,ui) {$('#head-search').val(ui.item.label);$('#head-search-form').submit();}
+}).keydown(function(e){
+    if (e.keyCode === 13){
+        $("#head-search-form").submit();
+    }
+});
+});
+
+$('#search-tabs div').buttonset();
+$('#search-tabs input').change(function() {
+    $('#search-tabs').submit();
+});
+
+</script>
+
+   <div id="site-feedback-button">
+      <img src="/images/button.png" height="135" width="36" alt="Click to send us feedback" role="button" data-toggle="modal" data-target="#feedback-modal">
+   </div>
+   <div id="feedback-modal" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>Send Us Feedback</h3>
+    </div>
+    <div class="modal-body">
+      <form id="feedback-form">        <p style="font-size:1.2em;font-weight:bold">How can we improve our FRED graphs?</p>
+        <p>If reporting a bug, please include the name of your operating system, web browser, and browser version number.</p>
+        Your feedback:<br>
+        <textarea rows="5" class="span4" name="message"></textarea><br>
+        Your email (if you want a reply):<br>
+        <input type="text" class="span4" name="email"><br>
+        <input type="hidden" name="name" value="FRED">        <input type="hidden" name="subject" value="FRED graph feedback">        <button class="btn btn-primary">Send feedback</button>
+      </form>
+    </div>
+   </div>
+
+   </div>
+
+   
+   <script type="text/javascript">
+      $(function(){
+      $(document).on('click', '#add-to-dash-side a', function (e) {
+          var isChanged = $(document).data('redraw'),
+              pop;
+
+          if (isChanged) {
+              e.preventDefault();
+              $(this).parent('.dropdown').removeClass('open');
+              $('#add-to-dash-side').find('.dropdown-menu').remove();
+              $(window).prop('location', '/useraccount/fredgraph?add_to_dash=1&action=add_graph&' + $.param(fredgraphUi.getOptionsAsLegacyObject()));
+           }
+      });
+      });
+
+      $(window).on('load', function (e) {
+          setTimeout(function () {
+             $(document).data('redraw', false);
+          }, 1500);
+      });
+
+      $('.select-all-checkboxes').click(function() {
+          $('input:checkbox').prop('checked',$(this).prop('checked'));
+      });
+      
+      $('.pager-item-checkbox').click(function() {
+          if ($(this).prop('checked')) {
+              return true;
+          }
+
+          $('.select-all-checkboxes').prop('checked', false);
+      });
+   
+      $('.help-question span.link').click(function() {
+          $(this).parent('.help-question').next('.help-answer').toggle();
+      });
+
+      $('#feedback-form').on('submit', function(e) {
+
+        e.preventDefault();
+        $.post('/contactus/email_research_webmaster.php?', $(this).serialize())
+          .done(function() {
+            $('#feedback-form input').val('');
+            $('#feedback-form textarea').val('');
+            $('#feedback-modal').modal('hide');
+          });
+      });
+
+       </script>
+   <script type="text/javascript">
+            $('.notes-read-more').on('click', function() {$('.notes-hidden').show(); $('.notes-read-more').hide()});
+            $('.notes-hide').on('click', function() {$('.notes-hidden').hide(); $('.notes-read-more').show()});
+            </script><script type="text/javascript">
+
+var request_order = 0;
+var tmp = 0;
+$('#tags-related-search-form').on('keyup change', function(event) {
+    display_related_tags(event);
+});
+
+$(function(){
+
+    display_related_tags();
+
+    $(".series-tags").each(function() {
+        if($(this).children(".tag").length > 12) {
+            $(this).find(".tag:gt(11)").hide();
+            $(this).append("<em class=\"tags-show-all\">show "+($(this).children(".tag").length - 12)+" more</em>");
+        }
+    });
+
+    $(".tags-show-all").on("click",function () {
+        $(this).hide();
+        $(this).prevAll(".tag:hidden").fadeIn();
+    });
+
+    $(".series-tags .tag, .related-tags-group li a").popover({
+        placement: "bottom",
+        trigger: "hover"
+    });
+
+    $('#order_by_options-dropdown li a').on('click', function() {
+         var order_by_form = $(this).closest('form');
+         order_by_form.find("input[name='ob']").val($(this).data('order-by'));
+         order_by_form.find("input[name='od']").val(null);
+         order_by_form.find("input[name='pageID']").val(1);
+         order_by_form.submit();
+    });
+
+    $('#selected-series-dropdown li a').on('click', function() {
+        $('#selected-series-action').prop('name', $(this).data('selected-action'));
+        $(this).closest('form').submit();
+    });
+
+    if($('.related-tags-group').children('li').length > 25)
+    {
+        $('.related-tags-group li:gt(24)').hide();
+        $('.related-tags-group').append('<p align="right"><a href="#" class="related-tags-group-show-more">Show More</a><p>');
+        $('.related-tags-group-show-more').click(function() {
+            $('.related-tags-group li:gt(24)').show('slide',{'direction':'up'});
+            $('.related-tags-group-show-more').remove();
+            return false;
+        });
+    }
+
+    $('#related-tags').on('click', '.tag-group-expand,.tag-group-collapse', function() {
+
+        $('#tg').val($(this).children('input').val());
+        $('#tags-related-search-form').trigger('change');
+        $(this).toggleClass('tag-group-expand', 'tag-group-collapse');
+
+        if($(this).hasClass('tag-group-collapse')) {
+            $('.related-tags-group').hide();
+        }
+
+    });
+});
+
+function display_related_tags(event) {
+
+    if (!$('#tags-related-search-form').length) {
+        return false;
+    }
+
+    if ((event === undefined) ||
+        (event.type != 'keyup')) {
+        request_order = 0;
+    }
+    else {
+        request_order++;
+    }
+
+   if (tmp > 0) {
+      clearTimeout(tmp);
+   }
+
+   $.ajax({
+      url: document.location.toString().replace(/\?.*/, ""),
+      datatype: 'json',
+      data: $('#tags-related-search-form').serialize()+'&request_order='+request_order+'&rts=1',
+      success: function(data) {
+
+         var data = jQuery.parseJSON(data);
+         if ((data) &&
+             request_order != data.request_order) {
+             return false;
+         }
+
+         $('#related-tags').html(data.related_tags);
+
+         $('.related-tags-group li a').popover({
+            placement: "right",
+            trigger: "hover"
+        });
+
+         if($('.related-tags-group').children('li').length > 25)
+         {
+             $('.related-tags-group li:gt(24)').hide();
+             $('.related-tags-group').append('<p align="right"><a href="#" class="related-tags-group-show-more">Show More</a><p>');
+             $('.related-tags-group-show-more').click(function() {
+                 $('.related-tags-group li:gt(24)').show('slide',{'direction':'up'});
+                 $('.related-tags-group-show-more').remove();
+                 return false;
+             });
+         }
+
+         if(data.related_tags_count == 0) {
+             if ((event === undefined) ||
+                 !event.keyCode) {
+                 $('.related-tags-group').html('<li>No related tags.</li>');
+             }
+             else
+             {
+                 tmp = setTimeout(function () {
+                     $('.related-tags-group').html('<li>No related tags.</li>');
+                 }, 1000);
+             }
+         }
+
+      }
+   });
+   return false;
+}
+
+
+</script>  </body>
+</html>
