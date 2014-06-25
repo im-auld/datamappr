@@ -15,5 +15,3 @@ $(function() {
         }
     });
 });
-
-//TODO: Fix first line when id's change
