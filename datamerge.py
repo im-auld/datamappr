@@ -89,21 +89,27 @@ state_dict = {
         'WY': 'Wyoming',
         }
 
+def activate_dl_process(data_shredder):
+    for index, data in enumerate(data_shredder):
+        print index
+        processes['dl{}'.format(index)] = Process(target=download_data, args=(data,))
+    for process in processes:
+        processes[process].start()
+    for process in processes:
+        processes[process].join()
+        
 def data_collection():
     with open('govdata/datafiles.json', 'r') as file:
         json_data = file.read()
     dataset = json.loads(json_data)
+    data_shredder = []
     count = len(dataset)
     divisor = count/process_num
-
-    for x in range(0, process_num):
-        processes['dl{}'.format(x)] = Process(target=download_data, args=(dataset[x*divisor:(x+1)*divisor],))
-
-    for process in processes:
-        processes[process].start()
-
-    for process in processes:
-        processes[process].join()
+    for x in range(0,process_num):
+        data_shredder.append(dataset[x*divisor:(x+1)*divisor],)
+        if x==process_num-1:
+            data_shredder.append(dataset[(x+1)*divisor:])
+    activate_dl_process(data_shredder)
 
 def download_data(dataset):
     for data in dataset:
