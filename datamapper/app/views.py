@@ -13,10 +13,10 @@ def index():
 def mock_ajax():
     states = State.query.all()
     coords = [{
-                'lat': state.latitude, 
-                'lng' : state.longitude, 
-                'count' : randint(10000, 100000)} 
-                for state in states]
+        'lat': state.latitude,
+        'lng': state.longitude,
+        'count': randint(10000, 100000)}
+        for state in states]
     # mock = [{
     #         'lat' : random() * 60,
     #         'lng' : random() * -180,
