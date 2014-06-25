@@ -10,9 +10,9 @@ from datamapper.app.forms import DataSetForm
 def index():
     form = DataSetForm()
     form.data_set.choices = [
-        ('Unemployment','Unemployment'),
-        ('GDP','GDP'),
-        ('Housing Starts','Housing Starts')
+        (1,'Unemployment'),
+        (2,'GDP'),
+        (3,'Housing Starts')
         ]
     return render_template('index.html', form=form)
 
