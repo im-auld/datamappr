@@ -3,7 +3,7 @@ import pytest
 from datamapper.app import app as _app
 from datamapper.app import db as _db
 from datamapper.app.views import mock_ajax
-from datamapper.app.models import State, Data
+from datamapper.app.models import State, Data, DataSet
 
 
 TEST_DATABASE_URI = 'postgresql://ian:heatmapper@localhost/test_heatmapper'
@@ -14,6 +14,15 @@ def req_context():
     """run tests within a test request context so that 'g' is present"""
     with _app.test_request_context('/mock-ajax'):
         yield
+
+@pytest.fixture(scope='function')
+def with_data(session):
+    ny = State('New York', 'NY', 42.1497, -74.9384)
+    _db.session.add(ny)
+    _db.session.commit()
+    data_set = DataSet('Unemployment')
+    _db.session.add(data_set)
+    _db.session.commit()
 
 @pytest.fixture(scope='session')
 def app(request):
@@ -50,7 +59,7 @@ def session(db, request):
     connection = db.engine.connect()
     transaction = connection.begin()
 
-    # This line breaks the tests but was included in the tutorial, 
+    # This line breaks the tests but was included in the tutorial,
     # may be important later.
     # options = dict(bind=connection, binds={})
     session = db.create_scoped_session()
@@ -74,12 +83,18 @@ def test_state_model():
     assert ny.short_name == 'NY'
 
 def test_db(session):
-    ny = State('New York', 'NY', 42.1497, -74.9384)
+    ny = State('New Jersey', 'NJ', 42.1497, -74.9384)
     _db.session.add(ny)
     _db.session.commit()
     assert ny.id > 0
 
-def test_data_model(session):
-    data = Data('NY', .12, '6/22/14')
-    print(State.query.filter(State.short_name == 'NY').first().id)
-    assert data.state_id == 1
+def test_data_set(session):
+    data_set = DataSet('Unemployment')
+    _db.session.add(data_set)
+    _db.session.commit()
+    assert data_set.id > 0
+
+def test_data_model(session, with_data):
+    data = Data('NY', 'Unemployment', .12, '6/22/14')
+    expected_state = State.query.filter(State.short_name == 'NY').one()
+    assert data.state_id == expected_state.id

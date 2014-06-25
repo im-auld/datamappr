@@ -336,7 +336,7 @@
                 var me = this,
                     rout, rin;
 
-                me.set("radius", config["radius"] || 40);
+                me.set("radius", config["radius"] || 10000);
                 me.set("element", (config.element instanceof Object)?config.element:document.getElementById(config.element));
                 me.set("visible", (config.visible != null)?config.visible:true);
                 me.set("max", config.max || false);
