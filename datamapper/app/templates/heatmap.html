@@ -22,7 +22,7 @@
           $.ajax("get-data-set",{
             data: $("#data-query").serialize(),
             success: function(response){
-              $("#test").text(response.date_start)
+              $("#test").text(response.data_set)
             }
           });
         });
