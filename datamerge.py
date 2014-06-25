@@ -30,7 +30,8 @@ data_dict = {'coincident_index':'PHCI',
             'labor_force':'LF',
             'initial_claims':'ICLAIMS',
             'personal_income':'OTOT',
-            'assets_commercial_banks':'QATA'
+            'assets_commercial_banks':'QATA',
+            'house_price_index':'STHPI'
             }
 data_dict2 = {'hourly_earnings':'S\M\U\0\1\0\SMU01000000500000003SA',
              'weekly_hours':'S\M\U\0\1\0\SMU01000000500000002SA'
@@ -190,10 +191,9 @@ if __name__ == '__main__':
             unzip_files(all_files)
 
         unzipped_dirs = []
-        for item in all_files:
-            if '.zip' not in item:
-                unzipped_dirs.append(item)
-
+        for file in all_files:
+            if '.zip' not in file:
+                unzipped_dirs.append(file)
 
     for index, metric in enumerate(data_dict):
         df_state = []
