@@ -53,13 +53,13 @@ def add_data_sets_to_db(data_sets):
         db.session.rollback()
 
 def add_data_to_db(data):
-    for dp in data:
-        try:
+    try:
+        for dp in data:
             db.session.add(Data(**dp))
-            db.session.commit()
-        except Exception as err:
-            print(err.message)
-            db.session.rollback()
+        db.session.commit()
+    except Exception as err:
+        print(err.message)
+        db.session.rollback()
 
 if __name__ == '__main__':
     files = get_file_list()
