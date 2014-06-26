@@ -24,3 +24,11 @@ h2{
 .jumbotron {
     overflow: auto;
 }
+
+#date-form {
+    display: none;
+}
+
+#time-slider {
+    display: none;
+}
