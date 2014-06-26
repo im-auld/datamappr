@@ -43,3 +43,6 @@ class DataSet(db.Model):
 
     def __init__(self, name):
         self.name = name.title()
+
+    def get_name(self, id):
+        return DataSet.query.get(id).name

@@ -149,11 +149,14 @@ def test_data_model(session, seed_data):
     expected_state = State.query.filter(State.short_name == 'NY').one()
     assert data.state_id == expected_state.id
 
+def test_data_set_get_name(session):
+    ds = DataSet.query.filter(DataSet.id == 1).one()
+    ds.name == 'Unemployment'
+
 def test_date_range_query(session):
     data = Data.query.filter(Data.date.between('6/1/09', '6/1/12')).all()
     assert len(data) == 7
 
 def test_data_set_query(session):
     data = Data.query.filter(Data.data_set == 1).all()
-    print([dp.date for dp in data])
-    assert 0
+    assert len(data) == 16
