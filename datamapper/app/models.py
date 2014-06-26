@@ -27,7 +27,7 @@ class Data(db.Model):
 
 
     def __init__(self, state, data_set, raw_data, date,normalized_data = None):
-        db_state = State.query.filter(State.short_name == state).first()
+        db_state = State.query.filter(State.short_name == state.upper()).first()
         db_data_set = DataSet.query.filter(DataSet.name == data_set.title()).first()
         self.state_id = db_state.id
         self.data_set = db_data_set.id

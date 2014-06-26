@@ -17,6 +17,10 @@
         {{ form.submit }}
       </div>
       <script type="text/javascript">
+        $("#data_set").on("change", function(){
+          $.ajax();
+        });
+
         $("#data-query").on("submit", function(event){
           event.preventDefault();
           $.ajax("get-data-set",{
