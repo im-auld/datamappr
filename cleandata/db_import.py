@@ -34,22 +34,23 @@ def parse(file, testing=True):
     return data
 
 def add_states_to_db(states):
-    for state in states:
-        try:
+    try:
+        for state in states:
             db.session.add(State(**state))
-            db.session.commit()
-        except Exception as err:
-            print(err.message)
-            db.session.rollback()
+        db.session.commit()
+    except Exception as err:
+        print(err.message)
+        db.session.rollback()
+        raise
 
 def add_data_sets_to_db(data_sets):
-    for ds in data_sets:
-        try:
+    try:
+        for ds in data_sets:
             db.session.add(State(ds))
-            db.session.commit()
-        except Exception as err:
-            print(err.message)
-            db.session.rollback()
+        db.session.commit()
+    except Exception as err:
+        print(err.message)
+        db.session.rollback()
 
 def add_data_to_db(data):
     for dp in data:
@@ -67,4 +68,4 @@ if __name__ == '__main__':
     data_sets = get_data_sets()
     add_data_sets_to_db(data_sets)
     for file in files:
-        add_data_to_db(parse(file))
+        add_data_to_db(parse(file, testing=False))
