@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from random import random, randint
 from time import strptime
 from flask import render_template, request, redirect, url_for
@@ -15,6 +15,7 @@ def index():
     form.data_set.choices.insert(0, (0,"Please select a dataset"))
     return render_template('index.html', form=form)
 
+
 @app.route('/mock-ajax')
 def mock_ajax():
     states = State.query.all()
@@ -27,11 +28,13 @@ def mock_ajax():
     print(max_val)
     return jsonify(data=coords, max_val=max_val)
 
+
 def format_date(str_date):
     if not str_date:
         return False
     fmt_date = strptime(str_date, '%m/%d/%Y')
     return date(fmt_date.tm_year, fmt_date.tm_mon, fmt_date.tm_mday)
+
 
 def format_data(data):
     result = [{
@@ -44,6 +47,16 @@ def format_data(data):
         res['coords'] = states[res['state']]
     return result
 
+
+@app.route('/get-start-date', methods=['POST', 'GET'])
+def get_start_date():
+    data_set = request.args.get('data_set', False)
+    print(data_set)
+    first_date = min([dp.date for dp in Data.query.filter(Data.data_set == data_set)])
+    first_date = datetime.strftime(first_date, '%m/%d/%Y')
+    return jsonify(first_date=first_date)
+
+
 @app.route('/get-data-set', methods=['POST', 'GET'])
 def get_data_set():
     data_set = request.args.get('data_set', False)
@@ -54,9 +67,8 @@ def get_data_set():
         result = Data.query.filter(Data.data_set== data_set).filter(Data.date.between(date_start, date_end)).all()
     else:
         result = Data.query.filter(Data.data_set == data_set).filter().all()
-    print(min([d.date for d in result]))
     result = format_data(result)
     print(result)
     return jsonify(
-        data = result
+        data = 5
         )
