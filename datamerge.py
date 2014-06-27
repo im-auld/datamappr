@@ -143,6 +143,8 @@ fips_dict = {
         'WY'	:	56,
         }
 
+def test_func():
+    print 'hello'
 
 def activate_dl_process(data_shredder):
     for index, data in enumerate(data_shredder):
