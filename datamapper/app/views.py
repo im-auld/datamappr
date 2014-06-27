@@ -43,6 +43,7 @@ def get_start_date():
     first_date = datetime.strftime(first_date, '%m/%d/%Y')
     return jsonify(first_date=first_date)
 
+
 @app.route('/get-date-range', methods=['POST', 'GET'])
 def get_date_range():
     data_set = request.args.get('data_set', False)
@@ -84,4 +85,4 @@ def get_data_set():
     data = Data.query.filter(Data.data_set == data_set).filter(Data.date == data_date).all()
     result = format_data(data)
     max_val = max([res['count'] for res in result])
-    return jsonify(data=result, max_val=100)
+    return jsonify(data=result, max_val=max_val)

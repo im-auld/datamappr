@@ -32,6 +32,10 @@ venv/
 .installed.cfg
 *.egg
 
+# Local Ignore Files
+govdata/
+cleandata/df_result_test.csv
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
