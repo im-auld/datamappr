@@ -2,10 +2,16 @@
     <form id="data-query" method='GET' >
       {{ form.csrf_token }}
       <div class="form-group">
+        <p>First pick the type of data you would like to see</p>
         {{ form.data_set.label }}
         {{ form.data_set(placeholder="Select a data set...") }}
       </div>
       <div id="date-form">
+        <p>
+          Now select a date range. If the end date is left blank you we will
+          show you from your start date to the most recent date. The earliest
+          date for your selected data set is displayed automatically.
+        </p>
         <div class="form-group">
           {{ form.date_start.label }}
           {{ form.date_start }}
@@ -26,24 +32,32 @@
       <script type="text/javascript">
         $("#data_set").on("change", function(){
           $("#date-form").slideDown();
-          $("#date_start").datepicker().focus();
-          $("#date_end").datepicker();
-          $.ajax();
+          $.ajax('/get-start-date', {
+            data: $("#data-query").serialize(),
+            success: function(response){
+              $("#date_start").datepicker();
+              $("#date_end").datepicker();
+              $("#date_start").val(response.first_date);
+            }
+          });
         });
 
         $("#data-query").on("submit", function(event){
           event.preventDefault();
-          $.ajax("get-data-set",{
+          $.ajax("/get-data-set",{
             data: $("#data-query").serialize(),
             success: function(response){
-              $("#time-slider").slideDown();
+              $("#slider").slideDown();
             }
           });
         });
       </script>
     </form>
     <p id="test"></p>
-    <p><div id='time-slider'></div></p>
+    <div id="slider">
+      <p>The slider will adjust the date of the data on the map</p>
+      <div id='time-slider'></div>
+    </div>
     <div id='radius-slider'></div>
 </p>
 <div id="heatmapArea">
@@ -66,11 +80,11 @@
           center: myLatlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           disableDefaultUI: false,
-          scrollwheel: true,
-          draggable: true,
+          scrollwheel: false,
+          draggable: false,
           navigationControl: true,
           mapTypeControl: false,
-          scaleControl: true,
+          scaleControl: false,
           disableDoubleClickZoom: false
         };
         map = new google.maps.Map(document.getElementById("heatmapArea"), myOptions);

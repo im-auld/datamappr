@@ -25,10 +25,6 @@ h2{
     overflow: auto;
 }
 
-#date-form {
-    display: none;
-}
-
-#time-slider {
+#date-form, #slider {
     display: none;
 }
