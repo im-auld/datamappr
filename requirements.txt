@@ -7,7 +7,6 @@ SQLAlchemy==0.9.6
 WTForms==1.0.5
 Werkzeug==0.9.6
 argparse==1.2.1
--e git+https://github.com/xbobo/FinalProject1.git@5363199def380d2b422b138b2af70469b8be30af#egg=datamapper-heroku/master
 gunicorn==19.0.0
 itsdangerous==0.24
 psycopg2==2.5.3
