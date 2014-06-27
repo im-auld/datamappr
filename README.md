@@ -1,10 +1,10 @@
 FinalProject1
 =============
 
-Sentiment trend analysis via twitter firehose
+Trend analysis of scraped government data.
 
-This will use twitter api to grab tweets relating to a particular stock and then use NLTK to gauge the sentiment of the tweet. 
+We crawl through link on the US Fed main page and collect all pertinent download links.
 
-It will create a sentiment metric for the stock over a period of time and overlay the actual stock price to visualize the relationship between the two. 
+Files are aggregated/cleaned/and imported into database for visual presentation.
 
-The visualization will be done via SVG
+A heat map is genervated via javascript that looks at the evolution of user selected data fields at a state level view over time.

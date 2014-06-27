@@ -27,6 +27,7 @@ sdist/
 var/
 venv/
 *_venv/
+.idea/
 *.egg-info/
 .installed.cfg
 *.egg
