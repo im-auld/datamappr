@@ -1,7 +1,7 @@
 from glob import glob
 from os import getcwd, listdir
 from datamapper.app import db
-from datamapper.app.models import Data
+from datamapper.app.models import Data, State, DataSet
 """
 File format: _, date, value, state
 """
@@ -18,7 +18,7 @@ def get_states():
 def get_data_sets():
     data_sets = []
     for ds in get_file_list():
-        data_set = ''.join(file.split('.')[0].replace('_',' '))
+        data_set = ''.join(ds.split('.')[0].replace('_',' '))
         data_sets.append(data_set)
     return data_sets
 
@@ -31,7 +31,7 @@ def parse(file, testing=True):
             dp['data_set'] = data_set
     if testing:
         return data[1::int(len(data)*.01)]
-    return data
+    return data[1:]
 
 def add_states_to_db(states):
     try:
@@ -46,7 +46,7 @@ def add_states_to_db(states):
 def add_data_sets_to_db(data_sets):
     try:
         for ds in data_sets:
-            db.session.add(State(ds))
+            db.session.add(DataSet(ds))
         db.session.commit()
     except Exception as err:
         print(err.message)
@@ -62,10 +62,17 @@ def add_data_to_db(data):
         db.session.rollback()
 
 if __name__ == '__main__':
+    print('Getting file list...')
     files = get_file_list()
+    print('Getting states...')
     states = get_states()
+    print('Adding states...')
     add_states_to_db(states)
+    print('Getting data_sets...')
     data_sets = get_data_sets()
+    print('Adding data sets...')
     add_data_sets_to_db(data_sets)
+    print('Adding data...')
     for file in files:
-        add_data_to_db(parse(file, testing=False))
+        print('Adding data from {}'.format(file))
+        add_data_to_db(parse(file))
