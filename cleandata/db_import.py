@@ -30,7 +30,7 @@ def parse(file, testing=True):
         for dp in data:
             dp['data_set'] = data_set
     if testing:
-        return data[1::int(len(data)*.01)]
+        return data[1::10]
     return data[1:]
 
 def add_states_to_db(states):
@@ -62,6 +62,7 @@ def add_data_to_db(data):
         db.session.rollback()
 
 if __name__ == '__main__':
+    testing = int(input('Enter 1 for testing 0 for not testing'))
     print('Getting file list...')
     files = get_file_list()
     print('Getting states...')
@@ -75,4 +76,4 @@ if __name__ == '__main__':
     print('Adding data...')
     for file in files:
         print('Adding data from {}'.format(file))
-        add_data_to_db(parse(file))
+        add_data_to_db(parse(file, testing=bool(testing)))
