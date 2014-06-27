@@ -1,68 +1,8 @@
-<p>
-    <form id="data-query" method='GET' >
-      {{ form.csrf_token }}
-      <div class="form-group">
-        <p>First pick the type of data you would like to see</p>
-        {{ form.data_set.label }}
-        {{ form.data_set(placeholder="Select a data set...") }}
-      </div>
-      <div id="date-form">
-        <p>
-          Now select a date range. If the end date is left blank you we will
-          show you from your start date to the most recent date. The earliest
-          date for your selected data set is displayed automatically.
-        </p>
-        <div class="form-group">
-          {{ form.date_start.label }}
-          {{ form.date_start }}
-          {% if form.date_start.errors %}
-            {% for err in form.date_Start.errors %}
-              <div>{{ err }}</div>
-            {% endfor %}
-          {% endif %}
-        </div>
-        <div class="form-group">
-          {{ form.date_end.label }}
-          {{ form.date_end }}
-        </div>
-        <div class="form-group">
-          {{ form.submit }}
-        </div>
-      </div>
-      <script type="text/javascript">
-        $("#data_set").on("change", function(){
-          $("#date-form").slideDown();
-          $.ajax('/get-start-date', {
-            data: $("#data-query").serialize(),
-            success: function(response){
-              $("#date_start").datepicker();
-              $("#date_end").datepicker();
-              $("#date_start").val(response.first_date);
-            }
-          });
-        });
-
-        $("#data-query").on("submit", function(event){
-          event.preventDefault();
-          $.ajax("/get-data-set",{
-            data: $("#data-query").serialize(),
-            success: function(response){
-              $("#slider").slideDown();
-            }
-          });
-        });
-      </script>
-    </form>
-    <p id="test"></p>
-    <div id="slider">
-      <p>The slider will adjust the date of the data on the map</p>
-      <div id='time-slider'></div>
-    </div>
-    <div id='radius-slider'></div>
-</p>
+<div class="container">
+<div id="heatmap-wrapper">
 <div id="heatmapArea">
 </div>
-<button id="mock" class="btn btn-info btn-lg">Get Data</button>
+</div>
 <script src="{{ url_for('static', filename='js/heatmap.js') }}"></script>
 <script src="{{ url_for('static', filename='js/heatmap-gmaps.js') }}"></script>
 <script type="text/javascript">
@@ -76,7 +16,7 @@
         // there is lots of work todo
         // but I don't have enough time for eg redrawing on dragrelease right now
         var myOptions = {
-          zoom: 4,
+          zoom: 3,
           center: myLatlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           disableDefaultUI: false,
@@ -108,7 +48,8 @@
 
         // this is important, because if you set the data set too early, the latlng/pixel projection doesn't work
         google.maps.event.addListenerOnce(map, "idle", function(){
-            heatmap.setDataSet(testData);
+            //heatmap.setDataSet(testData);
         });
     };
 </script>
+</div>
