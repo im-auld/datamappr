@@ -3,7 +3,7 @@ from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
 
-app = Flask(__name__, instance_path="/home/ian/Downloads/Projects/heat_map/instance")
+app = Flask(__name__)
 db = SQLAlchemy(app)
 # app.config.from_object('config')
 

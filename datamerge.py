@@ -89,21 +89,82 @@ state_dict = {
         'WY': 'Wyoming',
         }
 
+fips_dict = {
+        'AL'	:	1,
+        'AK'	:	2,
+        'AZ'	:	4,
+        'AR'	:	5,
+        'CA'	:	6,
+        'CO'	:	8,
+        'CT'	:	9,
+        'DE'	:	10,
+        'DC'	:	11,
+        'FL'	:	12,
+        'GA'	:	13,
+        'HI'  :	15,
+        'ID'  :	16,
+        'IL'	:	17,
+        'IN'	:	18,
+        'IA'	:	19,
+        'KS'	:	20,
+        'KY'	:	21,
+        'LA'	:	22,
+        'ME'	:	23,
+        'MD'	:	24,
+        'MA'	:	25,
+        'MI'	:	26,
+        'MN'	:	27,
+        'MS'	:	28,
+        'MO'	:	29,
+        'MT'	:	30,
+        'NE'	:	31,
+        'NV'	:	32,
+        'NH'	:	33,
+        'NJ'	:	34,
+        'NM'	:	35,
+        'NY'	:	36,
+        'NC'	:	37,
+        'ND'	:	38,
+        'OH'	:	39,
+        'OK'	:	40,
+        'OR'	:	41,
+        'PA'	:	42,
+        'RI'	:	44,
+        'SC'	:	45,
+        'SD'	:	46,
+        'TN'	:	47,
+        'TX'	:	48,
+        'UT'	:	49,
+        'VT'	:	50,
+        'VA'	:	51,
+        'WA'	:	53,
+        'WV'	:	54,
+        'WI'	:	55,
+        'WY'	:	56,
+        }
+
+
+def activate_dl_process(data_shredder):
+    for index, data in enumerate(data_shredder):
+        print index
+        processes['dl{}'.format(index)] = Process(target=download_data, args=(data,))
+    for process in processes:
+        processes[process].start()
+    for process in processes:
+        processes[process].join()
+        
 def data_collection():
     with open('govdata/datafiles.json', 'r') as file:
         json_data = file.read()
     dataset = json.loads(json_data)
+    data_shredder = []
     count = len(dataset)
     divisor = count/process_num
-
-    for x in range(0, process_num):
-        processes['dl{}'.format(x)] = Process(target=download_data, args=(dataset[x*divisor:(x+1)*divisor],))
-
-    for process in processes:
-        processes[process].start()
-
-    for process in processes:
-        processes[process].join()
+    for x in range(0,process_num):
+        data_shredder.append(dataset[x*divisor:(x+1)*divisor],)
+        if x==process_num-1:
+            data_shredder.append(dataset[(x+1)*divisor:])
+    activate_dl_process(data_shredder)
 
 def download_data(dataset):
     for data in dataset:
@@ -207,6 +268,8 @@ if __name__ == '__main__':
             df_state.append(read_csv(filename))
             df_state[index].columns = ['date', 'value']
             df_state[index]['state'] = state_short
+            mask = pd.Series([item!='.' for item in df_state[index]['value']], index=df_state[index].index)
+            df_state[index]= df_state[index][mask]
         print 'Generating DataFrame for '+metric
         df_result = pd.tools.merge.concat(df_state,axis=0)
         df_result.to_csv('cleandata/'+metric+'.csv')
